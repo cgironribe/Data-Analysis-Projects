@@ -6,11 +6,6 @@ Diverse data analysis and visualization projects utilizing SQL, Excel, Python, P
 ## Overview
 Explore a curated collection showcasing my expertise in data analysis through diverse projects utilizing SQL, Excel, Python, PowerBI, and Tableau. Each project is accompanied by its raw data link, allowing easy comparison between original and processed data for comprehensive insights.
 
-## Project Highlights
-- **[Project Name 1]:** Brief highlight of a significant project or its impact, if applicable.
-- **[Project Name 2]:** Mention another standout project or its relevance in your portfolio.
-
-
 ## Content
 - **In-depth Documentation:** Detailed project documentation aids in understanding data sources, methodologies, and the analytical process employed.
 - **Comparative Analysis:** Facilitates comprehensive comparisons between raw and processed data, showcasing transformational insights.
