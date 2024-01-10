@@ -3,7 +3,7 @@ SELECT * FROM videogame_sales
 -- Columns normalization. All the data is filled in English but the columns are named in Spanish including special characters and blank spaces
 EXEC sp_rename 'videogame_sales.Nombre', 'Game_name', 'COLUMN';
 EXEC sp_rename 'videogame_sales.Plataforma', 'Platform', 'COLUMN';
-EXEC sp_rename 'videogame_sales.Año', 'Launch_year', 'COLUMN';
+EXEC sp_rename 'videogame_sales.AÃ±o', 'Launch_year', 'COLUMN';
 EXEC sp_rename 'videogame_sales.Genero', 'Genre', 'COLUMN';
 EXEC sp_rename 'videogame_sales.Ventas NA', 'NA_sales', 'COLUMN';
 EXEC sp_rename 'videogame_sales.Ventas EU', 'EU_sales', 'COLUMN';
@@ -20,9 +20,6 @@ GROUP BY genre
 order by games_launched DESC
 
 
-
-
-
 --BEST SELLING GLOBAL 2016
 SELECT TOP(10)* FROM videogame_sales WHERE launch_year = 2016 ORDER BY global_sales DESC
 --BEST SELLING GLOBAL 2015
@@ -31,10 +28,7 @@ SELECT TOP(10)* FROM videogame_sales WHERE launch_year = 2015 ORDER BY global_sa
 SELECT TOP(10)* FROM videogame_sales WHERE launch_year = 2014 ORDER BY global_sales DESC
 
 
-
-
-
---TOTAL SALES PERCENTAGE PER GENRE
+--sales % per genre
 WITH cte_total_launched AS (
     SELECT genre, COUNT(genre) AS total_launched 
     FROM videogame_sales 
@@ -50,12 +44,12 @@ cte_total_sales AS (
 SELECT cte_total_launched.genre, 
     cte_total_launched.total_launched, 
     cte_total_sales.total_sales,
-    ROUND((cte_total_sales.total_sales * 100.0) / NULLIF(cte_total_launched.total_launched, 0), 2) AS sales_percentage
+    CONCAT(ROUND((cte_total_sales.total_sales * 100.0) / NULLIF(cte_total_launched.total_launched, 0), 2), '%') AS sales_percentage
 FROM cte_total_launched
 JOIN cte_total_sales ON cte_total_launched.genre = cte_total_sales.genre
 ORDER BY sales_percentage DESC;
 
---PLATFORM THAT GENERATED MORE SALES
+--platform which generated the most sales
 WITH cte_total_sales_platform AS (
     SELECT platform, SUM(global_sales) AS total_sales 
     FROM videogame_sales 
@@ -69,7 +63,7 @@ SELECT cte_total_sales_platform.platform,
 FROM cte_total_sales_platform
 ORDER BY total_sales DESC;
 
---COUNTRY WITH HIGHEST SALES 2016
+--country with highest sales 2016
 SELECT 
     CASE 
         WHEN SUM(NA_SALES) > SUM(EU_SALES) AND SUM(NA_SALES) > SUM(JP_SALES) AND SUM(NA_SALES) > SUM(OTHER_SALES) THEN 'North America'
@@ -88,7 +82,7 @@ WHERE launch_year = 2016;
 
 
 
---WHICH PLATFORM IS PREFERED BY GENRE
+--platform prefered by genre
 SELECT 
     genre,
     platform,
@@ -146,3 +140,4 @@ from videogame_sales
 where launch_year = 2016
 group by Genre
 order by global_revenue_from_platform DESC, Genre;
+
