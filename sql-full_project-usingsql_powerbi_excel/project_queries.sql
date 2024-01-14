@@ -30,6 +30,7 @@ INNER JOIN products p2
 	ON od2.product_id = p2.product_id
 GROUP BY p1.product_name, p2.product_name
 ORDER BY total_purchased DESC
+
 --same operation per category
 SELECT cat1.category_name, 
 	cat2.category_name, 
@@ -173,7 +174,7 @@ INNER JOIN products p ON p.product_id = od.product_id
 WHERE YEAR(o.order_date) = 2023
 GROUP BY p.product_id, p.product_name, MONTH(o.order_date)
 ORDER BY month_num, quantity_sold DESC
------ hacer revision de crecimiento plantilla
+
 --Breakdown by weeks of the 2023 sales [Petition email: 'Good morning, need you to send me as soon as possible a breakdown by weeks of the annual sales to adjust employee shifts and check vacation petitions based on the company needs.']
 SELECT DATEPART(WEEK, o.order_date) AS week_number,
 	   COUNT(o.order_date) AS transactions_generated
