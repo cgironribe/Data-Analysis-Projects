@@ -1,0 +1,39 @@
+# Sushi Delivery Data Analysis Portfolio
+## Overview
+This repository contains a comprehensive data analysis project for a small emerging sushi delivery business. The project encompasses the creation of a database from scratch, development of stored procedures to manage product stock, automation of data insertion processes, generation of dummy data for analysis, execution of insightful SQL queries to derive business insights, and visualization of results using Power BI.
+
+## Project Structure
+The project is organized as follows:
+
+Database Creation: A database was created from scratch to support the business operations, including tables for customers, orders, products, order details, and categories.
+
+Stored Procedures: Stored procedures were developed to facilitate stock control and automate data insertion processes, ensuring accurate tracking of product availability and order values.
+
+Dummy Data Generation: Dummy data was generated and populated into the database tables to simulate business transactions and facilitate analysis.
+
+SQL Queries: SQL queries were executed to analyze business performance, identify profitable products, determine optimal service times, assess staffing needs, understand customer preferences, and devise strategic marketing promotions.
+
+Power BI Visualizations: Power BI was utilized to create visually appealing and insightful visualizations based on the SQL query results, providing stakeholders with intuitive data representations.
+
+## Insights and Analysis
+The analysis provided valuable insights into various aspects of the sushi delivery business, including:
+
+Profitability Analysis: Identification of the most profitable products based on revenue generated and net profit.
+
+Service Optimization: Determination of peak service hours to allocate resources efficiently and meet customer demand effectively.
+
+Staffing Requirements: Assessment of staffing needs on different days to ensure adequate coverage during busy periods.
+
+Customer Preferences: Understanding of customer preferences through analysis of frequently ordered items, enabling targeted promotional strategies and enhanced customer experience.
+
+Power BI Visualizations
+Power BI visualizations included:
+
+Total Orders Over Time: Trend analysis of total orders throughout the business launch period.
+
+Customer Recurrence: Visualization of customer retention and recurrence rates, highlighting the frequency of repeat orders.
+
+Net Profit Analysis: Visualization of total net profit derived from product sales, providing insights into business profitability.
+
+## Conclusion
+The Sushi Delivery Data Analysis Portfolio showcases a comprehensive approach to data analysis, from database creation to insightful visualizations. The project demonstrates proficiency in SQL querying, database management, and data visualization techniques, offering valuable insights for business decision-making and strategy development.
