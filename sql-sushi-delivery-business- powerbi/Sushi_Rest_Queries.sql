@@ -36,10 +36,11 @@ GROUP BY customer;
 -- Client wants a brief report of the last quarter on sales profit
 
 SELECT LEFT(DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE())-3, 0), 11) AS start_date, 
-	   LEFT(DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE())-3, 0), 11) AS end_date, 
+	   LEFT(DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), 0), 11) AS end_date, 
 	   SUM(unit_price * quantity_ordered)AS total_revenue, 
 	   SUM(unit_cost * quantity_ordered)AS total_costs, 
-	   SUM((unit_price * quantity_ordered)-(unit_cost * quantity_ordered)) AS net_profit
+	   SUM((unit_price * quantity_ordered)-(unit_cost * quantity_ordered)) AS net_profit,
+	   COUNT(DISTINCT(o.order_id)) AS orders_received
 FROM order_details od
 INNER JOIN products p ON p.product_id = od.product_id
 INNER JOIN orders o ON o.order_id = od.order_id
@@ -48,7 +49,7 @@ WHERE order_date >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE())-3, 0)
 -- Client wants to check out the last quarter fluctuation on sales month by month
 
 SELECT MONTH(order_date) AS the_month,
-	    CONCAT(SUM(order_value), ' €') AS total_revenue,
+	    CONCAT(SUM(order_value), ' â‚¬') AS total_revenue,
 		COUNT(DISTINCT(o.order_id)) AS total_orders,
 		SUM(quantity_ordered) AS products_sold
 FROM orders o 
@@ -60,7 +61,7 @@ GROUP BY MONTH(order_date)
 
 SELECT CONCAT(DATEPART(HOUR, order_date), 'h') AS day_time,
 	   COUNT(DISTINCT(o.order_id)) AS orders_received,
-	   CONCAT(SUM(order_value),'€') AS sales_revenue
+	   CONCAT(SUM(order_value),'â‚¬') AS sales_revenue
 FROM orders o 
 WHERE YEAR(order_date) = 2024
 GROUP BY CONCAT(DATEPART(HOUR, order_date), 'h')
