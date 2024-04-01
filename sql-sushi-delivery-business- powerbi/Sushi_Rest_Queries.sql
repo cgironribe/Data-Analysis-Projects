@@ -36,7 +36,7 @@ GROUP BY customer;
 -- Client wants a brief report of the last quarter on sales profit
 
 SELECT LEFT(DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE())-3, 0), 11) AS start_date, 
-	   LEFT(DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), 0), 11) AS end_date, 
+	   LEFT(DATEADD(DAY, DATEDIFF(MONTH, 0, GETDATE()), 0), 11) AS end_date, 
 	   SUM(unit_price * quantity_ordered)AS total_revenue, 
 	   SUM(unit_cost * quantity_ordered)AS total_costs, 
 	   SUM((unit_price * quantity_ordered)-(unit_cost * quantity_ordered)) AS net_profit,
