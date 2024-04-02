@@ -69,7 +69,7 @@ ORDER BY orders_received DESC
 
 -- Client requires to know which days of the week have been the most profitable ones so far in order to adapt the opening schedule. The store has opened on January 2024.
 
-SELECT CASE WHEN DATEPART(WEEKDAY, order_date) = 0 THEN 'sun'
+SELECT CASE WHEN DATEPART(WEEKDAY, order_date) = 7 THEN 'sun'
 	   WHEN DATEPART(WEEKDAY, order_date) = 1 THEN 'mon'
 	   WHEN DATEPART(WEEKDAY, order_date) = 2 THEN 'tue'
 	   WHEN DATEPART(WEEKDAY, order_date) = 3 THEN 'wed'
@@ -85,7 +85,7 @@ FROM orders o
 INNER JOIN order_details od ON od.order_id = o.order_id
 INNER JOIN products p ON p.product_id = od.product_id
 WHERE YEAR(order_date) = 2024
-GROUP BY (CASE WHEN DATEPART(WEEKDAY, order_date) = 0 THEN 'sun'
+GROUP BY (CASE WHEN DATEPART(WEEKDAY, order_date) = 7 THEN 'sun'
 	   WHEN DATEPART(WEEKDAY, order_date) = 1 THEN 'mon'
 	   WHEN DATEPART(WEEKDAY, order_date) = 2 THEN 'tue'
 	   WHEN DATEPART(WEEKDAY, order_date) = 3 THEN 'wed'
