@@ -1,0 +1,40 @@
+Data Analysis Project: Movies Database
+Overview
+  
+This project aims to create a functional database structure to store information about various movies. The database was built using SQL Server Management Studio (SMSS), 
+with data collected from authentic sources such as Google and supplemented with dummy data generated from Mockaroo.com. 
+The primary objective was to establish a comprehensive database capable of storing details about movies, directors, cast members, and related information.
+
+Features
+  
+Utilized SMSS to create and manage the database structure.
+Gathered authentic information from Google to populate the database.
+Generated dummy data using Mockaroo.com and prepared it in Excel before inserting it into the SMSS database.
+Created tables to store information about movies, directors, cast members, etc.
+Developed a visualization using Power BI based on queries executed in SMSS.
+The Power BI visualization provides insights into customer preferences during the initial weeks of the project.
+  
+Database Structure
+
+The database comprises several tables to organize and store movie-related information:
+Movies: Contains details about each movie, including title, year of release, rating, synopsis, and duration.
+Directors: Stores information about movie directors, including their first name, last name, birthdate, and country.
+Actors: Stores information about the cast members of each movie, including their first name, last name, birthdate, and country.
+Genres: Contains different movie genres.
+Languages: Stores information about languages in which movies are available.
+Customers: Includes data about customers who interact with the movie database, such as their personal information, membership status, and contact details.
+Memberships: Defines different membership tiers and their privileges.
+Ratings: Stores ratings and comments provided by customers for movies.
+Stock Movies: Keeps track of available units of each movie in stock.
+Status: Defines various statuses for rented movies, such as pending, rented, returned, and late.
+Rented Movies: Records transactions of rented movies by customers, including the status, movie ID, customer ID, and rental date.
+  
+The Power BI visualization offers interactive insights into customer preferences, allowing users to explore trends and patterns in movie choices during the early stages of the project.
+
+Usage
+To replicate the project or contribute to its development:
+
+Install SQL Server Management Studio (SMSS).
+Clone this repository to your local machine.
+Import the SQL scripts into SMSS to create the database structure and populate it with data.
+Open the Power BI file to explore the visualization.
